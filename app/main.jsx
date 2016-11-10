@@ -24,6 +24,23 @@ const App = connect(
     </div>
 )
 
+// import Jokes from './components/Jokes'
+// import Login from './components/Login'
+// import GoogleLogin from './components/GoogleLogin'
+// import WhoAmI from './components/WhoAmI'
+
+// const App = connect(
+//   ({ auth }) => ({ user: auth })
+// ) (
+//   ({ user, children }) =>
+//     <div>
+//       <nav>
+//         {user ? <WhoAmI/> : <Login/>}
+//       </nav>
+//       {children}
+//     </div>
+// )
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
