@@ -19,6 +19,8 @@ if (!pkg.isProduction && !pkg.isTesting) {
   app.use(require('volleyball'))
 }
 
+// var database = firebase.database();
+
 module.exports = app
   // We'll store the whole session in a cookie
   .use(require('cookie-session') ({
