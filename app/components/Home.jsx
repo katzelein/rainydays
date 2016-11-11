@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { Link } from 'react-router';
+import AppBar from 'material-ui/AppBar';
 
-export default class Home extends React.Component {
+
+export class Home extends Component {
+
   render() {
-    return(<div>Hello World</div>)
+
+    return (
+      <div>
+        <AppBar>
+          <Link to='/'><img src="/logo.png" alt="rainyDays: your emotional piggybank"/></Link>
+        </AppBar>
+        {this.props.children}
+      </div>
+    )
   }
 }
+
+// const mapStateToProps = ({auth}) => ({
+//   auth
+// })
+
+export default connect (
+  null,
+  null
+) (Home)
