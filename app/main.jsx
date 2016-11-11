@@ -12,22 +12,21 @@ import Home from './components/Home'
 import RainyDays from './components/RainyDays'
 import SunnyDays from './components/SunnyDays'
 
-const App = connect(
-  ({ auth }) => ({ user: auth })
-) (
-  ({ user, children }) =>
-    <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-      </nav>
-      {children}
-    </div>
-)
 
-// import Jokes from './components/Jokes'
-// import Login from './components/Login'
-// import GoogleLogin from './components/GoogleLogin'
-// import WhoAmI from './components/WhoAmI'
+// for Google's Material UI
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { yellow300, blue900 } from 'material-ui/styles/colors';
+
+injectTapEventPlugin();
+
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: yellow300,
+    primary2Color: blue900,
+  },
+});
 
 // const App = connect(
 //   ({ auth }) => ({ user: auth })
@@ -42,14 +41,13 @@ const App = connect(
 // )
 
 render (
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRedirect to={Home} />
-        <Route path="/rainydays" component={RainyDays} />
-        <Route path="/sunnydays" component={Sunnydays} />
-      </Route>
-    </Router>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+        </Route>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('main')
 )
