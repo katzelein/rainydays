@@ -53,6 +53,7 @@ export default class ShowMyPicture extends React.Component {
                 Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
               </CardText>
         </Card>
+    </Paper>
     )
   }
 }

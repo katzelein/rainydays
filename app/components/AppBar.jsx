@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
-import Login from '/Login';
+import Login from './Login';
 
 import Popover from 'material-ui/Popover';
 import IconButton from 'material-ui/IconButton';
@@ -32,11 +32,11 @@ export default class AppBar extends React.Component {
     console.log('you have successfully sign out')
   }
 
-  
+
 
   handleClick = (event) => {
     event.preventDefault();
-    
+
   }
 
   render() {
@@ -45,8 +45,8 @@ export default class AppBar extends React.Component {
       <nav>
         <div id="nav-top">
           <Link to='/'><img src="/images/logo.png" alt="rainyDays: your emotional piggybank"/></Link>
-          {!this.state.logged ? 
-            <FlatButton label="Login" style={{color: 'white'}} href="/login" onClick={this.signIn} /> 
+          {!this.state.logged ?
+            <FlatButton label="Login" style={{color: 'white'}} href="/login" onClick={this.signIn} />
             :
             <FlatButton label="Logout" style={{color: 'white'}} href="/logout" onClick={this.signOut} />
           }
