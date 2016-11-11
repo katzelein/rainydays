@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
-import ImageSun from 'material-ui/svg-icons/image/wb-sunny';
 import Paper from 'material-ui/Paper';
 
 const style = {
@@ -28,7 +27,7 @@ export default class ShowMemory extends React.Component {
             <image 
               width="667" 
               height="667"
-              xlinkHref="/image-gallery.svg"
+              xlinkHref="/images/image-gallery.svg"
               />
           </svg>
           <br /><span>or...</span><br />
@@ -40,16 +39,10 @@ export default class ShowMemory extends React.Component {
             <image 
               width="667" 
               height="667"
-              xlinkHref="/pencil-with-stripes.svg"/>
+              xlinkHref="/images/pencil-with-stripes.svg"/>
           </svg>
         </Paper>
       </div>
     )
   }
 }
-
-
-// We're so glad you're feeling sunny! Would you like to:
-
-// Save that sun for a rainy day?
-// See the contents of your piggybank?

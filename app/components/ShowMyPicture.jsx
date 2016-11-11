@@ -9,11 +9,6 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    'position': fixed;
-    'top': 50%;
-    'left': 50%;
-    'margin-top': -50px;
-    'margin-left': -100px;
   },
   gridList: {
     width: 600,
@@ -32,7 +27,7 @@ const tile =
 export default class ShowMyPicture extends React.Component {
   render () {
     return (
-      <Paper style={{width: 650, padding: 10}}zDepth={4}>
+      <Paper style={{width: 650, padding: 10}} zDepth={4}>
         <div style={styles.root}>
           <GridTile
             key={tile.img}

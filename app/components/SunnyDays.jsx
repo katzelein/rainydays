@@ -28,7 +28,7 @@ export default class SunnyDays extends React.Component {
             <image 
               width="667" 
               height="667"
-              xlinkHref="/sun.svg"
+              xlinkHref="/images/sun.svg"
               />
           </svg>
           <br /><span>or...</span><br />
@@ -40,7 +40,7 @@ export default class SunnyDays extends React.Component {
             <image 
               width="667" 
               height="667"
-              xlinkHref="/piggy-bank-with-dollar-coins.svg"/>
+              xlinkHref="/images/piggy-bank-with-dollar-coins.svg"/>
           </svg>
         </Paper>
       </div>

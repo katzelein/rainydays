@@ -20,28 +20,16 @@ import ShowMyPicture from './components/ShowMyPicture'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { yellow200, indigo800 } from 'material-ui/styles/colors';
+import { yellow200, blue800 } from 'material-ui/styles/colors';
 
 injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: indigo800,
+    primary1Color: blue800,
     primary2Color: yellow200
   },
 });
-
-// const App = connect(
-//   ({ auth }) => ({ user: auth })
-// ) (
-//   ({ user, children }) =>
-//     <div>
-//       <nav>
-//         {user ? <WhoAmI/> : <Login/>}
-//       </nav>
-//       {children}
-//     </div>
-// )
 
 render (
   <MuiThemeProvider muiTheme={muiTheme}>
