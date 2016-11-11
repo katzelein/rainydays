@@ -14,7 +14,7 @@ import SunnyDays from './components/SunnyDays'
 import ShowMemory from './components/ShowMemory'
 import ShowMyPictures from './components/ShowMyPictures'
 import ShowMyPicture from './components/ShowMyPicture'
-
+import NewEntryContainer from './components/NewEntry'
 
 // for Google's Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -44,6 +44,7 @@ render (
           <Route path="/showMemory" component={ShowMemory}/>
           <Route path="/showMyPictures" component={ShowMyPictures}/>
           <Route path="/showMyPicture" component={ShowMyPicture}/>
+          <Route path='/newEntry' component={NewEntryContainer}/>
         </Route>
       </Router>
     </Provider>
