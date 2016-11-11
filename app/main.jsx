@@ -5,9 +5,9 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
+
 import Home from './components/Home'
 import RainyDays from './components/RainyDays'
 import SunnyDays from './components/SunnyDays'
@@ -17,14 +17,14 @@ import SunnyDays from './components/SunnyDays'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { yellow300, blue900 } from 'material-ui/styles/colors';
+import { yellow300, indigo800 } from 'material-ui/styles/colors';
 
 injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: yellow300,
-    primary2Color: blue900,
+    primary2Color: indigo800,
   },
 });
 
@@ -44,7 +44,11 @@ render (
   <MuiThemeProvider>
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path="/" component={Home}>
+          <IndexRedirect to="/choose" />
+          <Route path="/choose" />
+          <Route path="/sunny" component={SunnyDays}/>
+          <Route path="/rainy" component={RainyDays}/>
         </Route>
       </Router>
     </Provider>
