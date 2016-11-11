@@ -48,7 +48,8 @@ render (
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Home}>
-          <IndexRedirect to="/choose" />
+          <IndexRedirect to="/login" />
+          <Route path="/login" component={Login}/>
           <Route path="/choose" />
           <Route path="/sunny" component={SunnyDays}/>
           <Route path="/rainy" component={RainyDays}/>
