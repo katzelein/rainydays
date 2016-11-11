@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
-import AppBar from 'material-ui/AppBar';
-import Paper from 'material-ui/Paper';
+
+import AppBar from './AppBar';
 
 
 export class Home extends Component {
@@ -18,9 +18,7 @@ export class Home extends Component {
 
     return (
       <div>
-        <AppBar>
-          <Link to='/'><img src="/logo.png" alt="rainyDays: your emotional piggybank"/></Link>
-        </AppBar>
+        <AppBar />
         {this.props.children}
       </div>
     )

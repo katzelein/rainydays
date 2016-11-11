@@ -29,6 +29,7 @@ const tile =
 export default class ShowMyPicture extends React.Component {
   render () {
     return (
+      <Paper style={{width: 650, padding: 10}} zDepth={4}>
       <Card>
           <CardHeader
             title="URL Avatar"
@@ -52,19 +53,6 @@ export default class ShowMyPicture extends React.Component {
                 Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
               </CardText>
         </Card>
-
     )
   }
 }
-
-    /*
-      <Paper style={{width: 650, padding: 10}}zDepth={4}>
-        <div style={styles.root}>
-          <GridTile
-            key={tile.img}
-            title={tile.title} >
-            <img src={tile.img} />
-          </GridTile>
-        </div>
-      </Paper>
-    */
