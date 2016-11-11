@@ -56,21 +56,3 @@ export default class AppBar extends React.Component {
   }
 }
 
-
-'users': {
-  'kathrynguthrie': {
-    'name': 'kat'
-    'email': 'kathrynguthrie@gmail.com'
-  }
-}
-
-'pictures': {
-  'username': 'kathrynguthrie',
-    'one': {
-      'url': 'www.facebook.com',
-      'createdOn': '2016-11-11'
-    }
-  }
-}
-
-
