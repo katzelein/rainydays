@@ -8,22 +8,91 @@ import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import DatePicker from 'material-ui/DatePicker';
 import Toggle from 'material-ui/Toggle';
+import RaisedButton from 'material-ui/RaisedButton';
+import Dialog from 'material-ui/Dialog';
 
+// comment this out or delete it once component is connected to rest of site
+var config = {
+      apiKey: "AIzaSyDG_-h-hfHUfl2ZDweQeBczeohVe7CD58o",
+      authDomain: "rainydays-b83c4.firebaseapp.com",
+      databaseURL: "https://rainydays-b83c4.firebaseio.com",
+      storageBucket: "rainydays-b83c4.appspot.com",
+      messagingSenderId: "820568609336"
+};
+firebase.initializeApp(config);
 
 class NewEntry extends React.Component {
+
   constructor(props) {
+
     super(props)
     this.state = {
-      status: 'public'
+      subject: '',
+      content: '',
+      date: '',
+      status: 'private',
+      open: false
     }
-    // this.addUserMood = this.addUserMood.bind(this)
-    // this.onFormSubmit = this.onFormSubmit.bind(this)
+
+    this.onFormSubmit.bind(this)
+    this.handleSubjectChange.bind(this)
+    this.handleContentChange.bind(this)
+    this.handleDateChange.bind(this)
+    this.handleStatusChange.bind(this)
+    this.handleOpen.bind(this)
+    this.handleClose.bind(this)
   }
 
+  handleSubjectChange = (e) =>
+    this.setState({
+      subject: e.target.value
+    })
+
+  handleContentChange = (e) =>
+    this.setState({
+      content: e.target.value
+    })
+
+  handleDateChange = (e, date) => {
+    const newDate = date.toString();
+    this.setState({
+      date: newDate
+    })
+    // for some reason this doesn't save to the state, 
+    // but I don't think it's especially important 
+    // that it does. Use JSON.stringify otherwise
+  }
+
+  handleStatusChange = (e) =>
+    this.setState({
+      status: e.target.value
+    })
+
+  onFormSubmit = (e) => {
+    // e.preventDefault();
+
+    const userEmail = firebase.auth().currentUser.providerData[0].email
+
+    var memory = firebase.database().ref('memories/');
+
+    memory.push({
+      username: userEmail,
+      subject: this.state.subject,
+      content: this.state.content,
+      date: this.state.date,
+      status: this.state.status
+    })
+  }
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
+
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
   render() {
-    // handleToggle() {
-    //   this.setState({status: 'private'})
-    // }
 
     const style = {
       height: 500,
@@ -53,65 +122,60 @@ class NewEntry extends React.Component {
          color: 'red',
        },
     };
+
+    const actions = [
+      <RaisedButton 
+        label="OK"
+        primary={true}
+        onClick={this.handleClose} />
+    ];
+
     return (
 
       <div>
         <Paper style={style} zDepth={1} >
-          <TextField
-               hintText="Hint Text"
-             /><br />
-             <br />
-             <TextField
-               hintText="The hint text can be as long as you want, it will wrap."
-             /><br />
-          <DatePicker hintText="Portrait Dialog" container='inline'/>
-          <Toggle
-            label="public"
-            defaultToggled={true}
-            style={style.toggle}
-          />
+          <form onSubmit={this.onFormSubmit}>
+            <TextField 
+              hintText="What was your thought about?" 
+              name="subject"
+              onChange={this.handleSubjectChange} />
+            <br />
+            <br />
+            <TextField
+              hintText="What about this memory makes you happy?"
+              name="content"
+              onChange={this.handleContentChange} />
+            <br />
+            <DatePicker 
+              hintText="What was the date this happened" 
+              container='inline' 
+              name="date" 
+              onChange={this.handleDateChange} />
+            <Toggle
+              label="private"
+              defaultToggled={true}
+              style={style.toggle}
+              name="status"
+              onChange={this.handleStatusChange} />
+            <RaisedButton label="Save My Memory" onClick={this.handleOpen} primary={true} />
+            <Dialog
+              title="Save My Memory"
+              open={this.state.open} 
+              actions={actions} >
+              Thanks for saving your memory for a rainy day.
+            </Dialog>
+          </form>
         </Paper>
-    </div>
+      </div>
     )
   }
-
-  addUserMood(moodInfo){
-    fetch(`/api/users/${moodInfo.userName}/${moodInfo.moodName}`, {
-      method: "POST",
-      headers: {
-      "Content-type": "application/json"
-      },
-      body: JSON.stringify({
-        userName: moodInfo.userName,
-        moodName: moodInfo.moodName,
-        picUrl: moodInfo.picUrl
-      })
-     })
-      .then(()=> store.dispatch(setCurrentUser(moodInfo)))
-      .catch(err => console.error(err))
-
-    .then(res => console.log('finished posting'))
-  }
 }
-
-//   onFormSubmit(e){
-//     e.preventDefault();
-//     //dispach an action with form info to update the store
-//     const moodInfo = {
-//       userName: e.target.userName.value,
-//       moodName: e.target.moodName.value,
-//       picUrl: e.target.picUrl.value
-//     }
-//     console.log('moodInfo', moodInfo)
-//      this.addUserMood(moodInfo)
-//   }
-// }
 
 const mapState = () => {
   return {}
 }
 
-const mapDispatch = (dispach) => {
+const mapDispatch = (dispatch) => {
   return {}
 }
 

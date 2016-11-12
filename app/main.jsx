@@ -5,9 +5,8 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
 
+import WhoAmI from './components/WhoAmI'
 import Home from './components/Home'
 import RainyDays from './components/RainyDays'
 import SunnyDays from './components/SunnyDays'
@@ -36,8 +35,7 @@ render (
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={Home}>
-          <IndexRedirect to="/login" />
-          <Route path="/login" component={Login}/>
+          <IndexRedirect to="/choose" />
           <Route path="/choose" />
           <Route path="/sunny" component={SunnyDays}/>
           <Route path="/rainy" component={RainyDays}/>

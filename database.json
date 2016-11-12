@@ -1,0 +1,18 @@
+{ 
+  "memories": {
+    "one": {
+      "username": "kathrynguthrie@gmail.com",
+      "subject": "I love my mom",
+      "content": "She is hilarious",
+      "date": "11-07-2016",
+      "status": "private"
+    },
+    "two": {
+      "username": "hiro0404@gmail.com",
+      "subject": "My dog is the best",
+      "content": "He has the most awesome nose",
+      "date": "11-08-2016",
+      "status": "public"
+    }
+  }
+}

@@ -10,13 +10,20 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 
+import firebase from 'firebase'
+
 export default class AppBar extends React.Component {
+
+  // create firebase auth
+  auth = firebase.auth();
+  database = firebase.database();
+  storage = firebase.storage()
 
   constructor () {
     super()
     this.state = {
       mood: '',
-      logged: true,
+      logged: false,
       open: false,
     }
     this.signIn.bind(this)
@@ -24,19 +31,18 @@ export default class AppBar extends React.Component {
   }
 
   signIn = () => {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    this.setState({
+      logged: true
+    })
   }
 
   signOut = () => {
-    this.auth.signOut()
-    console.log('you have successfully sign out')
-  }
-
-
-
-  handleClick = (event) => {
-    event.preventDefault();
-
+    firebase.auth().signOut()
+    this.setState({
+      logged: false
+    })
+    console.log('You\'re now logged out')
   }
 
   render() {
@@ -45,10 +51,11 @@ export default class AppBar extends React.Component {
       <nav>
         <div id="nav-top">
           <Link to='/'><img src="/images/logo.png" alt="rainyDays: your emotional piggybank"/></Link>
+          <Link to='/newEntry' >Save a Memory</Link>
           {!this.state.logged ?
-            <FlatButton label="Login" style={{color: 'white'}} href="/login" onClick={this.signIn} />
+            <FlatButton label="Login" style={{color: 'white'}} onClick={this.signIn} />
             :
-            <FlatButton label="Logout" style={{color: 'white'}} href="/logout" onClick={this.signOut} />
+            <FlatButton label="Logout" style={{color: 'white'}} onClick={this.signOut} />
           }
         </div>
       </nav>
