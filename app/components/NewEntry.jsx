@@ -58,8 +58,8 @@ class NewEntry extends React.Component {
     this.setState({
       date: newDate
     })
-    // for some reason this doesn't save to the state, 
-    // but I don't think it's especially important 
+    // for some reason this doesn't save to the state,
+    // but I don't think it's especially important
     // that it does. Use JSON.stringify otherwise
   }
 
@@ -124,7 +124,7 @@ class NewEntry extends React.Component {
     };
 
     const actions = [
-      <RaisedButton 
+      <RaisedButton
         label="OK"
         primary={true}
         onClick={this.handleClose} />
@@ -132,11 +132,12 @@ class NewEntry extends React.Component {
 
     return (
 
-      <div>
+      <div id='new-entry'>
         <Paper style={style} zDepth={1} >
           <form onSubmit={this.onFormSubmit}>
-            <TextField 
-              hintText="What was your thought about?" 
+          <h2>Add A New Memory</h2>
+            <TextField
+              hintText="What was your thought about?"
               name="subject"
               onChange={this.handleSubjectChange} />
             <br />
@@ -146,10 +147,10 @@ class NewEntry extends React.Component {
               name="content"
               onChange={this.handleContentChange} />
             <br />
-            <DatePicker 
-              hintText="What was the date this happened" 
-              container='inline' 
-              name="date" 
+            <DatePicker
+              hintText="What was the date this happened"
+              container='inline'
+              name="date"
               onChange={this.handleDateChange} />
             <Toggle
               label="private"
@@ -160,7 +161,7 @@ class NewEntry extends React.Component {
             <RaisedButton label="Save My Memory" onClick={this.handleOpen} primary={true} />
             <Dialog
               title="Save My Memory"
-              open={this.state.open} 
+              open={this.state.open}
               actions={actions} >
               Thanks for saving your memory for a rainy day.
             </Dialog>

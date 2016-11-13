@@ -44,7 +44,6 @@ render (
           <Route path="/showMyPictures" component={ShowMyPictures}/>
           <Route path="/showMyPicture" component={ShowMyPicture}/>
           <Route path='/newEntry' component={NewEntryContainer}/>
-
         </Route>
       </Router>
     </Provider>

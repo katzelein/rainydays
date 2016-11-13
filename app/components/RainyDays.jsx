@@ -20,7 +20,8 @@ export default class RainyDays extends React.Component {
     return(
         <div id='rainy'>
           <Paper style={style} zDepth={5} circle={false} >
-          <h4>Sorry to hear you're feeling rainy :( <br/> Would you like to:</h4>
+          <h3>Sorry to hear you're feeling rainy :( <br/> Would you like to:</h3>
+          <br/>
           <span>Take a look inside your piggybank?</span><br />
           <a href='/showMyPicture'>
              <FloatingActionButton>
@@ -35,7 +36,8 @@ export default class RainyDays extends React.Component {
                 </svg>
             </FloatingActionButton>
           </a>
-          <span>or...</span><br />
+          <br/><span>or...</span><br />
+          <br/><br/>
           <span>Look at a random happy thing?</span><br />
           <a href='/showMyPictures'>
              <FloatingActionButton>

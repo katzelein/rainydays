@@ -18,9 +18,11 @@ const style = {
 export default class SunnyDays extends React.Component {
   render() {
     return(
-        <div>
+        <div id='sunny'>
           <Paper style={style} zDepth={5} circle={false} >
-          <h4>We're so glad you're feeling sunny today! <br/> Would you like to:</h4>
+          <br />
+          <h3>We're so glad you're feeling sunny today! <br/> Would you like to:</h3>
+          <br/>
           <span>Save that sun for a rainy day?</span><br/>
           <a href='/newEntry'>
              <FloatingActionButton>
@@ -38,6 +40,7 @@ export default class SunnyDays extends React.Component {
               </FloatingActionButton>
           </a>
           <br /><span>or...</span><br />
+          <br /><br />
           <span>Take a look inside your piggybank?</span><br />
           <a href='/showMyPicture'>
             <FloatingActionButton>
