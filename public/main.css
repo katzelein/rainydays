@@ -1,3 +1,6 @@
+.navbar {
+    margin-bottom: 0;
+}
 
 .sunnybg {
     background-image: './sunny.jpg';
@@ -13,7 +16,7 @@
 
 nav {
   width: 100%;
-  background-color: #1565C0;
+
 }
 
 #nav-top {
@@ -29,6 +32,8 @@ nav {
 
 .row {
   display: flex;
+  position: relative;
+   width: 100%; /* for IE 6 */
 }
 #left-panel {
   background: #ffe4b2;
@@ -38,7 +43,7 @@ nav {
   transition-property: background, width;
   transition-duration: .2s, 1s;
   transition-timing-function: linear, ease-in;
-
+  position: relative;
 }
 
 #right-panel {
@@ -50,12 +55,64 @@ nav {
 
 #sunny {
   margin-top: 80px;
-  margin-left: 100px
+  margin-left: 450px;
 }
 
 #rainy {
   margin-top: 80px;
-  margin-left: 100px
+  margin-left: 450px
 }
 
 
+h1 span {
+   color: black;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.05);
+   padding: 10px;
+}
+
+
+
+h1 {
+   position: absolute;
+   top: 45%;
+   left: 0;
+   margin-left: 42%;
+   width: 100%;
+}
+
+#left-bunny {
+   position: absolute;
+   top: 30%;
+   left: 0;
+   margin-left: 20%;
+   width: 10%;
+}
+
+#right-bunny {
+   position: absolute;
+   top: 30%;
+   left: 0;
+   margin-left: 72%;
+   width: 10%;
+}
+
+#new-entry {
+  margin-left: 35%;
+  margin-top: 3%;
+  padding-top: 5%
+}
+
+#imglist {
+  margin-left: 30%;
+  margin-top: 3%;
+  padding-top: 5%
+}
+
+#single {
+  margin-left: 30%;
+  margin-top: 3%;
+  padding-top: 5%
+}

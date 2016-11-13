@@ -31,7 +31,7 @@ export default class ShowMyPicture extends React.Component {
   render () {
     console.log(this.props)
     return (
-      <Paper style={{width: 650, padding: 10}} zDepth={4}>
+      <Paper style={{width: 650, padding: 10}} zDepth={4} id='single'>
         <Card>
           <CardMedia
             overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />} >
