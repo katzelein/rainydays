@@ -15,7 +15,7 @@ import ShowMyPictures from './components/ShowMyPictures'
 import ShowMyPicture from './components/ShowMyPicture'
 import NewEntryContainer from './components/NewEntry'
 import NewPicture from './components/NewPicture'
-import Choose from './components/Choose'
+import landingPage from './components/landingPage'
 
 // for Google's Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -38,14 +38,13 @@ render (
       <Router history={browserHistory}>
         <Route path="/" component={Home}>
           <IndexRedirect to="/choose" />
-          <Route path="/choose" component={Choose}/>
+          <Route path="/choose" component={landingPage}/>
           <Route path="/sunny" component={SunnyDays}/>
           <Route path="/rainy" component={RainyDays}/>
           <Route path="/showMemory" component={ShowMemory}/>
-          <Route path="/showMyPictures" component={ShowMyPictures}>
-            <Route path="/:pictureId" component={ShowMyPicture}/>
-          </Route>
-          <Route path="/newEntry" component={NewEntryContainer}/>
+          <Route path="/showMyPictures" component={ShowMyPictures}/>
+          <Route path="/showMyPicture" component={ShowMyPicture}/>
+          <Route path='/newEntry' component={NewEntryContainer}/>
           <Route path="/newPicture" component={NewPicture}/>
         </Route>
       </Router>
