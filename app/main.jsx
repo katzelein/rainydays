@@ -37,14 +37,14 @@ render (
       <Router history={browserHistory}>
         <Route path="/" component={Home}>
           <IndexRedirect to="/choose" />
-          <Route path="/choose" />
+          <Route path="/choose" component={landingPage}/>
           <Route path="/sunny" component={SunnyDays}/>
           <Route path="/rainy" component={RainyDays}/>
           <Route path="/showMemory" component={ShowMemory}/>
           <Route path="/showMyPictures" component={ShowMyPictures}/>
           <Route path="/showMyPicture" component={ShowMyPicture}/>
           <Route path='/newEntry' component={NewEntryContainer}/>
-          <Route path='/landingPage' component={landingPage}/>
+
         </Route>
       </Router>
     </Provider>
