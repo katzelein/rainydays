@@ -26,3 +26,36 @@ nav {
 #nav-top img {
   max-width: 350px;
 }
+
+.row {
+  display: flex;
+}
+#left-panel {
+  background: #ffe4b2;
+  width: 50%;
+  min-height: 800px;
+  transition: width 2s;
+  transition-property: background, width;
+  transition-duration: .2s, 1s;
+  transition-timing-function: linear, ease-in;
+
+}
+
+#right-panel {
+  background: #CBDDE1;
+  width: 50%;
+  min-height: 800px;
+
+}
+
+#sunny {
+  margin-top: 80px;
+  margin-left: 100px
+}
+
+#rainy {
+  margin-top: 80px;
+  margin-left: 100px
+}
+
+
