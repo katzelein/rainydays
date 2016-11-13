@@ -26,3 +26,21 @@ nav {
 #nav-top img {
   max-width: 350px;
 }
+
+.row {
+  display: flex;
+}
+#left-panel {
+  background: #F2CC7B;
+  width: 50%;
+  min-height: 800px;
+  transition: width 2s;
+}
+#left-panel:actives {
+  width:100%;
+}
+#right-panel {
+  background: #A5C6EF;
+  width: 50%;
+  min-height: 800px;
+}
