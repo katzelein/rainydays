@@ -1,45 +1,139 @@
-import React from 'react'
-import { Link } from 'react-router'
-// export const Login = ({ login }) => (
-//   <form onSubmit={evt => {
-//     evt.preventDefault()
-//     login(evt.target.username.value, evt.target.password.value)
-//   } }>
-//     <input name="username" />
-//     <input name="password" type="password" />
-//     <input type="submit" value="Login" />
-//   </form>
-// )
-
-import {login} from 'APP/app/reducers/auth'
-import {connect} from 'react-redux'
-
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { Link } from 'react-router';
 import firebase from 'firebase'
+
+import Popover from 'material-ui/Popover';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
+import MenuIcon from 'material-ui/svg-icons/navigation/menu';
+import Avatar from 'material-ui/Avatar';
+
 
 
 export default class Login extends React.Component {
-  // create firebase auth
-  auth = firebase.auth()
-  database = firebase.database()
-  storage = firebase.storage()
-  // signIn using google as the provider
-  signIn = () => this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider)
 
-  signOut = () => {
-    this.auth.signOut()
-    console.log('you have successfully sign out')
+  constructor() {
+    super();
+    this.state = {
+      displayName: '',
+      email: '',
+      userPhoto: '',
+      uid: '',
+      providerData: null,
+      logged: false
+    }
+    this.onSignIn.bind(this)
+    this.isUserEqual.bind(this)
+    this.handleSignOut.bind(this)
+    this.initApp.bind(this)
   }
-  render() {
 
-    return(
+
+  componentWillMount() {
+    this.initApp(); 
+  }
+
+  render () {
+    return (
       <div>
-        <button onClick={this.signIn}>Login</button>
-        <button onClick={this.signOut}>Sign Out</button>
-      </div>)
+        { 
+          !this.state.logged ? 
+            <div>
+              <Avatar
+                src={this.state.userPhoto}
+                size={30}
+                />
+              <span>Hi, {this.state.displayName}</span>
+              <FlatButton label="Logout" style={{color: 'white'}} onClick={this.handleSignOut} />
+            </div>
+          : 
+            <FlatButton label="Login" style={{color: 'white'}} onClick={this.onSignIn} />
+        }
+      </div>
+    )
+  }
+
+  onSignIn(googleUser) {
+    console.log('Google Auth Response', googleUser);
+
+    var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
+      unsubscribe();
+
+      if (!isUserEqual(googleUser, firebaseUser)) {
+        var credential = firebase.auth.GoogleAuthProvider.credential(
+            googleUser.getAuthResponse().id_token);
+        firebase.auth().signInWithCredential(credential).catch(function(error) {
+
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          var email = error.email;
+
+          var credential = error.credential;
+          if (errorCode === 'auth/account-exists-with-different-credential') {
+            alert('You have already signed up with a different auth provider for that email.');
+          } else {
+            console.error(error);
+          }
+        });
+      } 
+      else {
+        console.log('User already signed-in to Firebase.');
+      }
+    });
+  }
+
+  isUserEqual(googleUser, firebaseUser) {
+    if (firebaseUser) {
+      var providerData = firebaseUser.providerData;
+      for (var i = 0; i < providerData.length; i++) {
+        if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
+            providerData[i].uid === googleUser.getBasicProfile().getId()) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  handleSignOut() {
+    var googleAuth = gapi.auth2.getAuthInstance();
+    googleAuth.signOut().then(function() {
+      firebase.auth().signOut();
+    });
+  }
+
+  initApp() {
+    // Auth state changes.
+    firebase.auth().onAuthStateChanged(function(user){
+      if (user) {
+
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+
+        this.setState({
+          displayName: '',
+          email: '',
+          userPhoto: '',
+          uid: '',
+          providerData: null,
+          logged: true
+        })
+        console.log("User is already logged in")
+      }
+      else {
+        this.setState({
+          logged: false
+        })
+        console.log("User is not logged in")
+      }
+    }) 
   }
 }
-
-// export default connect (
-//   state => ({}),
-//   {login},
-// ) (Login)

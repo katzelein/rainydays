@@ -14,10 +14,7 @@ import firebase from 'firebase'
 
 export default class AppBar extends React.Component {
 
-  // create firebase auth
   auth = firebase.auth();
-  database = firebase.database();
-  storage = firebase.storage()
 
   constructor () {
     super()
@@ -26,23 +23,6 @@ export default class AppBar extends React.Component {
       logged: false,
       open: false,
     }
-    this.signIn.bind(this)
-    this.signOut.bind(this)
-  }
-
-  signIn = () => {
-    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider)
-    this.setState({
-      logged: true
-    })
-  }
-
-  signOut = () => {
-    firebase.auth().signOut()
-    this.setState({
-      logged: false
-    })
-    console.log('You\'re now logged out')
   }
 
   render() {
@@ -52,14 +32,15 @@ export default class AppBar extends React.Component {
         <div id="nav-top">
           <Link to='/'><img src="/images/logo.png" alt="rainyDays: your emotional piggybank"/></Link>
           <Link to='/newEntry' >Save a Memory</Link>
-          {!this.state.logged ?
-            <FlatButton label="Login" style={{color: 'white'}} onClick={this.signIn} />
-            :
-            <FlatButton label="Logout" style={{color: 'white'}} onClick={this.signOut} />
-          }
+          <Link to='/newPicture' >Save a Picture</Link>
+          <Link to='/showMyPictures' >Show My Pictures</Link>
+          <Link to='/showMyPicture' >Show My Picture</Link>
+          <Link to='/choose' >Choose a mood</Link>
+          <Login /> 
         </div>
       </nav>
     )
   }
 }
+
 
