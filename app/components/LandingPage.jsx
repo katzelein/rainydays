@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import SunnyDays from './SunnyDays'
 import RainyDays from './RainyDays'
 
@@ -9,7 +9,8 @@ export default class LandingPage extends React.Component {
     super(props);
     this.state={
       showLeftComponent: false,
-      showRightComponent: false
+      showRightComponent: false,
+
     }
     this.leftPanelOnClick=this.leftPanelOnClick.bind(this);
     this.rightPanelOnClick=this.rightPanelOnClick.bind(this)
@@ -19,7 +20,8 @@ export default class LandingPage extends React.Component {
       this.setState({
         showLeftComponent: true,
         showRightComponent: false})
-    }
+  }
+
 
   rightPanelOnClick() {
       this.setState({
@@ -33,6 +35,7 @@ export default class LandingPage extends React.Component {
     <div>
       <div className='row' >
         <div className='col-lg-5' id='left-panel' onClick={this.leftPanelOnClick}>
+
           {this.state.showLeftComponent? <SunnyDays/>:null}
         </div>
         <div className='col-lg-5'id='right-panel' onClick={this.rightPanelOnClick}>
