@@ -45,10 +45,7 @@ render (
           <Route path="/showMyPictures" component={ShowMyPictures}/>
           <Route path="/showMyPicture" component={ShowMyPicture}/>
           <Route path='/newEntry' component={NewEntryContainer}/>
-<<<<<<< HEAD
           <Route path="/newPicture" component={NewPicture}/>
-=======
->>>>>>> 12a86af193494fd9f134c37e7d0342d637ced9b6
         </Route>
       </Router>
     </Provider>

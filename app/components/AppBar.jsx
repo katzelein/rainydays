@@ -23,11 +23,30 @@ export default class AppBar extends React.Component {
       logged: false,
       open: false,
     }
+    this.signIn.bind(this)
+    this.signOut.bind(this)
   }
+
+  signIn = () => {
+    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    this.setState({
+      logged: true
+    })
+  }
+
+  signOut = () => {
+    firebase.auth().signOut()
+    this.setState({
+      logged: false
+    })
+    console.log('You\'re now logged out')
+  }
+
 
   render() {
 
     return (
+
       <div>
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
