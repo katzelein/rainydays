@@ -10,7 +10,6 @@ import DatePicker from 'material-ui/DatePicker';
 import Toggle from 'material-ui/Toggle';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
-import firebase from 'firebase'
 
 // comment this out or delete it once component is connected to rest of site
 // var config = {
@@ -22,7 +21,7 @@ import firebase from 'firebase'
 // };
 // firebase.initializeApp(config);
 
-class NewEntry extends React.Component {
+export default class NewPicture extends React.Component {
 
   constructor(props) {
 
@@ -36,22 +35,22 @@ class NewEntry extends React.Component {
     }
 
     this.onFormSubmit.bind(this)
-    this.handleSubjectChange.bind(this)
-    this.handleContentChange.bind(this)
+    this.handleTitleChange.bind(this)
+    this.handlePhotoURLChange.bind(this)
     this.handleDateChange.bind(this)
     this.handleStatusChange.bind(this)
     this.handleOpen.bind(this)
     this.handleClose.bind(this)
   }
 
-  handleSubjectChange = (e) =>
+  handleTitleChange = (e) =>
     this.setState({
-      subject: e.target.value
+      title: e.target.value
     })
 
-  handleContentChange = (e) =>
+  handlePhotoURLChange = (e) =>
     this.setState({
-      content: e.target.value
+      photoURL: e.target.value
     })
 
   handleDateChange = (e, date) => {
@@ -59,8 +58,8 @@ class NewEntry extends React.Component {
     this.setState({
       date: newDate
     })
-    // for some reason this doesn't save to the state,
-    // but I don't think it's especially important
+    // for some reason this doesn't save to the state, 
+    // but I don't think it's especially important 
     // that it does. Use JSON.stringify otherwise
   }
 
@@ -78,8 +77,8 @@ class NewEntry extends React.Component {
 
     memory.push({
       username: userEmail,
-      subject: this.state.subject,
-      content: this.state.content,
+      title: this.state.title,
+      photoURL: this.state.photoURL,
       date: this.state.date,
       status: this.state.status
     })
@@ -125,7 +124,7 @@ class NewEntry extends React.Component {
     };
 
     const actions = [
-      <RaisedButton
+      <RaisedButton 
         label="OK"
         primary={true}
         onClick={this.handleClose} />
@@ -133,25 +132,24 @@ class NewEntry extends React.Component {
 
     return (
 
-      <div id='new-entry'>
+      <div>
         <Paper style={style} zDepth={1} >
           <form onSubmit={this.onFormSubmit}>
-          <h2>Add A New Memory</h2>
-            <TextField
-              hintText="What was your thought about?"
-              name="subject"
+            <TextField 
+              hintText="Write a caption for your photo" 
+              name="title"
               onChange={this.handleSubjectChange} />
             <br />
             <br />
             <TextField
-              hintText="What about this memory makes you happy?"
-              name="content"
+              hintText="Where can we find this picture?"
+              name="photoURL"
               onChange={this.handleContentChange} />
             <br />
-            <DatePicker
-              hintText="What was the date this happened"
-              container='inline'
-              name="date"
+            <DatePicker 
+              hintText="When was this?" 
+              container='inline' 
+              name="date" 
               onChange={this.handleDateChange} />
             <Toggle
               label="private"
@@ -159,12 +157,12 @@ class NewEntry extends React.Component {
               style={style.toggle}
               name="status"
               onChange={this.handleStatusChange} />
-            <RaisedButton label="Save My Memory" onClick={this.handleOpen} primary={true} />
+            <RaisedButton label="Save My Picture" onClick={this.handleOpen} primary={true} />
             <Dialog
-              title="Save My Memory"
-              open={this.state.open}
+              title="Save My Picture"
+              open={this.state.open} 
               actions={actions} >
-              Thanks for saving your memory for a rainy day.
+              Thanks for saving your picture for a rainy day.
             </Dialog>
           </form>
         </Paper>
@@ -173,13 +171,13 @@ class NewEntry extends React.Component {
   }
 }
 
-const mapState = () => {
-  return {}
-}
+// const mapState = () => {
+//   return {}
+// }
 
-const mapDispatch = (dispatch) => {
-  return {}
-}
+// const mapDispatch = (dispatch) => {
+//   return {}
+// }
 
-export default connect()(NewEntry)
+// export default connect()(NewEntry)
 

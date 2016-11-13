@@ -21,30 +21,26 @@ const styles = {
 
 const tile =
   {
-    img: '/kitten1.jpg',
+    img: 'images/kitten1.jpg',
     title: 'Cute Kitten 1',
-    author: 'jill111',
+    author: 'kathrynguthrie@gmail.com',
   }
 
 export default class ShowMyPicture extends React.Component {
+
   render () {
+    console.log(this.props)
     return (
       <Paper style={{width: 650, padding: 10}} zDepth={4} id='single'>
         <Card>
-          <CardHeader
-            title="URL Avatar"
-            subtitle="Subtitle"
-            avatar="images/jsa-128.jpg"
-          />
           <CardMedia
-            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-          >
+            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />} >
             <img src={tile.img} style={{width: 350, padding: 10}}/>
           </CardMedia>
           <CardTitle title={tile.title} subtitle="Card subtitle" />
           <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            <FlatButton label="See More Pictures" primary={true} />
+            <FlatButton label="See My Memories" primary={true}/>
           </CardActions>
           <CardText expandable={true}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

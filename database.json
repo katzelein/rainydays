@@ -2,17 +2,88 @@
   "memories": {
     "one": {
       "username": "kathrynguthrie@gmail.com",
-      "subject": "I love my mom",
-      "content": "She is hilarious",
+      "subject": "I love my cat Obi",
+      "content": "He is hilarious every single day",
       "date": "11-07-2016",
       "status": "private"
     },
     "two": {
+      "username": "kathrynguthrie@gmail.com",
+      "subject": "No Obi is seriously the best cat ever",
+      "content": "He woke me up at 3am for cuddles because god I don't know why",
+      "date": "11-07-2016",
+      "status": "private"
+    },
+    "three": {
+      "username": "kathrynguthrie@gmail.com",
+      "subject": "Obi's nose",
+      "content": "It's practically perfect in every way",
+      "date": "11-07-2016",
+      "status": "private"
+    },
+    "four": {
       "username": "hiro0404@gmail.com",
       "subject": "My dog is the best",
       "content": "He has the most awesome nose",
       "date": "11-08-2016",
       "status": "public"
     }
-  }
+  },
+  "pictures": {
+    "one": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "I love this kitten",
+      "photoURL": "https://img.buzzfeed.com/buzzfeed-static/static/2014-11/4/14/enhanced/webdr09/enhanced-2603-1415128848-6.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "two": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "I might love this kitten more",
+      "photoURL": "http://www.lovethispic.com/uploaded_images/159554-Adorable-Kitten.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "three": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "No okay this is the best kitten ever",
+      "photoURL": "https://s-media-cache-ak0.pinimg.com/236x/a1/31/da/a131da5f22f13515625f80b8347f3878.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "four": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "Maybe someday I'll start a kitten farm",
+      "photoURL": "http://www.funpedia.net/imgs/sep13/adorable_kittens_02.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "five": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "That sounds like Animal Farm I'll just start a shelter",
+      "photoURL": "https://s-media-cache-ak0.pinimg.com/originals/aa/36/fc/aa36fc4ad4022455c4cb028bc5dd1643.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "six": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "I might want kittens more than I want children",
+      "photoURL": "https://cdn.mysmelly.com/image:/sitefs/perm/pi/b/q/z/3/401.500.0_f2.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "seven": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "This was my profile pic for two years maybe I am a kitten",
+      "photoURL": "https://pbs.twimg.com/profile_images/1256609205/adorable_kitten_2.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+    },
+    "eight": {
+      "username": "kathrynguthrie@gmail.com",
+      "title": "Wow I only ever save kittens to this app they should call it KittenDays",
+      "photoURL": "https://s-media-cache-ak0.pinimg.com/736x/77/40/e5/7740e5d0745f9661170ca81620bd548e.jpg",
+      "date": "11-07-2016",
+      "status": "public"
+  }, 
 }

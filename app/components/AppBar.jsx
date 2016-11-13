@@ -14,10 +14,7 @@ import firebase from 'firebase'
 
 export default class AppBar extends React.Component {
 
-  // create firebase auth
   auth = firebase.auth();
-  database = firebase.database();
-  storage = firebase.storage()
 
   constructor () {
     super()
@@ -45,9 +42,11 @@ export default class AppBar extends React.Component {
     console.log('You\'re now logged out')
   }
 
+
   render() {
 
     return (
+
       <div>
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
@@ -84,3 +83,4 @@ export default class AppBar extends React.Component {
     )
   }
 }
+

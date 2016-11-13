@@ -14,6 +14,7 @@ import ShowMemory from './components/ShowMemory'
 import ShowMyPictures from './components/ShowMyPictures'
 import ShowMyPicture from './components/ShowMyPicture'
 import NewEntryContainer from './components/NewEntry'
+import NewPicture from './components/NewPicture'
 import landingPage from './components/landingPage'
 
 // for Google's Material UI
@@ -44,13 +45,13 @@ render (
           <Route path="/showMyPictures" component={ShowMyPictures}/>
           <Route path="/showMyPicture" component={ShowMyPicture}/>
           <Route path='/newEntry' component={NewEntryContainer}/>
+          <Route path="/newPicture" component={NewPicture}/>
         </Route>
       </Router>
     </Provider>
   </MuiThemeProvider>,
   document.getElementById('main')
 )
-
 
 
 
