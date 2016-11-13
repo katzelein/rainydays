@@ -40,7 +40,7 @@ export default class Login extends React.Component {
     return (
       <div>
         { 
-          !this.state.logged ? 
+          this.state.logged ? 
             <div>
               <Avatar
                 src={this.state.userPhoto}

@@ -35,7 +35,6 @@ export default class AppBar extends React.Component {
           <Link to='/newPicture' >Save a Picture</Link>
           <Link to='/showMyPictures' >Show My Pictures</Link>
           <Link to='/showMyPicture' >Show My Picture</Link>
-          <Link to='/choose' >Choose a mood</Link>
           <Login /> 
         </div>
       </nav>
