@@ -29,7 +29,7 @@ const tile =
 export default class ShowMyPicture extends React.Component {
   render () {
     return (
-      <Paper style={{width: 650, padding: 10}} zDepth={4}>
+      <Paper style={{width: 650, padding: 10}} zDepth={4} id='single'>
         <Card>
           <CardHeader
             title="URL Avatar"

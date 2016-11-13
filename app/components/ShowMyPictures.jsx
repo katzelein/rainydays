@@ -63,7 +63,7 @@ const dummyData = [
 export default class ShowMyPictures extends React.Component {
   render () {
     return (
-      <Paper style={{width: 650, padding: 10}}zDepth={4}>
+      <Paper style={{width: 650, padding: 10}}zDepth={4} id='imglist'>
         <div style={styles.root}>
           <GridList
             cellHeight={180}
