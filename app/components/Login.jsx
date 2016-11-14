@@ -49,10 +49,10 @@ export default class Login extends React.Component {
                 size={30}
                 />
               <span>Hi, {this.state.displayName}</span>
-              <FlatButton label="Logout" style={{color: 'white'}} onClick={this.handleSignOut} />
+              <FlatButton label="Logout" style={{color: 'white'}} onClick={this.signOut} />
             </div>
           : 
-            <FlatButton label="Login" style={{color: 'white'}} onClick={this.onSignIn} />
+            <FlatButton label="Login" style={{color: 'white'}} onClick={this.signIn} />
         }
       </div>
     )
@@ -66,7 +66,10 @@ export default class Login extends React.Component {
   }
 
   signOut () {
-    firebase.auth().signOut()
+    var googleAuth = gapi.auth2.getAuthInstance();
+    googleAuth.signOut().then(function() {
+      firebase.auth().signOut();
+    });
     this.setState({
       logged: false
     })
