@@ -44,6 +44,7 @@ export default class AppBar extends React.Component {
 
 
   render() {
+    console.log(firebase.auth().currentUser)
 
     return (
 
@@ -66,12 +67,7 @@ export default class AppBar extends React.Component {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li><span className="glyphicon glyphicon-log-in"></span>
-
-                    {!this.state.logged ?
-                      <FlatButton label="Login" style={{color: 'red'}} onClick={this.signIn} />
-                            :
-                    <FlatButton label="Logout" style={{color: 'red'}} onClick={this.signOut} />
-                    }
+                <Login />
                 </li>
               </ul>
             </div>

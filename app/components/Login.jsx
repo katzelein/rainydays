@@ -29,6 +29,8 @@ export default class Login extends React.Component {
     this.isUserEqual.bind(this)
     this.handleSignOut.bind(this)
     this.initApp.bind(this)
+    this.signIn.bind(this)
+    this.signOut.bind(this)
   }
 
 
@@ -56,13 +58,28 @@ export default class Login extends React.Component {
     )
   }
 
+  signIn () {
+    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider)
+    this.setState({
+      logged: true
+    })
+  }
+
+  signOut () {
+    firebase.auth().signOut()
+    this.setState({
+      logged: false
+    })
+    console.log('You\'re now logged out')
+  }
+
   onSignIn(googleUser) {
     console.log('Google Auth Response', googleUser);
 
     var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
       unsubscribe();
 
-      if (!isUserEqual(googleUser, firebaseUser)) {
+      if (!this.isUserEqual(googleUser, firebaseUser)) {
         var credential = firebase.auth.GoogleAuthProvider.credential(
             googleUser.getAuthResponse().id_token);
         firebase.auth().signInWithCredential(credential).catch(function(error) {
@@ -119,11 +136,11 @@ export default class Login extends React.Component {
         var providerData = user.providerData;
 
         this.setState({
-          displayName: '',
-          email: '',
-          userPhoto: '',
-          uid: '',
-          providerData: null,
+          displayName: displayName,
+          email: email,
+          userPhoto: photoURL,
+          uid: uid,
+          providerData: providerData,
           logged: true
         })
         console.log("User is already logged in")
