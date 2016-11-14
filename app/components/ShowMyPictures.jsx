@@ -27,57 +27,6 @@ const styles = {
   },
 };
 
-const dummyData = [
-  {
-    id: 1,
-    img: '/kitten1.jpg',
-    title: 'Cute Kitten 1',
-    author: 'jill111',
-  },
-  {
-    id: 2,
-    img: '/kitten2.jpg',
-    title: 'Cute Kitten 2',
-    author: 'pashminu',
-  },
-  {
-    id: 3,
-    img: '/kitten3.jpg',
-    title: 'Cute Kitten 3',
-    author: 'Danson67',
-  },
-  {
-    id: 4,
-    img: '/kitten4.jpg',
-    title: 'Cute Kitten 4',
-    author: 'fancycrave1',
-  },
-  {
-    id: 5,
-    img: '/kitten5.jpg',
-    title: 'Cute Kitten 5',
-    author: 'Hans',
-  },
-  {
-    id: 6,
-    img: '/kitten6.jpg',
-    title: 'Cute Kitten 6',
-    author: 'fancycravel',
-  },
-  {
-    id: 7,
-    img: '/kitten7.jpg',
-    title: 'Cute Kitten 7',
-    author: 'jill111',
-  },
-  {
-    id: 8,
-    img: '/kitten8.jpg',
-    title: 'Cute Kitten 8',
-    author: 'BkrmadtyaKarki',
-  },
-];
-
 export default class ShowMyPictures extends React.Component {
   constructor (props) {
     super(props);
@@ -86,8 +35,7 @@ export default class ShowMyPictures extends React.Component {
     }
   }
 
-
-  componentWillMount () {
+  componentDidMount () {
 
     // retrieves pictures by logged in user from the database
     
