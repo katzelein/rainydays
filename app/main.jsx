@@ -18,12 +18,9 @@ import NewPicture from './components/NewPicture'
 import landingPage from './components/landingPage'
 
 // for Google's Material UI
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { yellow200, blue800 } from 'material-ui/styles/colors';
-
-injectTapEventPlugin();
 
 const muiTheme = getMuiTheme({
   palette: {
