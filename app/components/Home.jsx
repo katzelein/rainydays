@@ -8,14 +8,14 @@ import firebase from 'firebase'
 import config from '../../googleAPIconfig.js'
 
 // config and initialize the app in the global scope
-var config = {
+var myConfig = {
       apiKey: config.apiKey,
       authDomain: config.authDomain,
       databaseURL: config.databaseURL,
       storageBucket: config.storageBucket,
       messagingSenderId: config.messagingSenderId
 };
-firebase.initializeApp(config);
+firebase.initializeApp(myConfig);
 
 
 export class Home extends Component {
